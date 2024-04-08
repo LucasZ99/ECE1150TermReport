@@ -2,10 +2,10 @@ model = 'BCH_sim.slx';
 open_system(model);
 
 % compare theoretical error rate vs simulation error rate
-EbNoVec = 0:2:10;
+EbNoVec = 0:1:10;
 
 % Uncoded BER
-uncodedBER = berawgn(EbNoVec, "qam", 8);
+uncodedBER = berawgn(EbNoVec, "psk", 2, "nondiff");
 
 % theorBER will change depending on what kind of code you are generating
 theorBER = bercoding(EbNoVec,'block','hard',7,4,3);
@@ -19,7 +19,7 @@ end
 
 % produce a semilog graph of coded, theoretical, and uncoded BER's
 semilogy( ...
-    EbNoVec,berVecBSC(:,1),'d', ...
+    EbNoVec,berVecBSC(:,1),'b*', ...
     EbNoVec,theorBER,'-',...
     EbNoVec, uncodedBER, '-');
 
