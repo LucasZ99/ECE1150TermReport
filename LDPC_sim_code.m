@@ -1,5 +1,8 @@
 H = dvbs2ldpc(1/2);
 
+
+% LDPC Simulink functions are deprecated and LDPC_sim.slx is for visual representation ONLY
+% The following LDPC code is up to Matlab 2024 standards.
 cfgLDPCEnc = ldpcEncoderConfig(H);
 cfgLDPCDec = ldpcDecoderConfig(H);
 
